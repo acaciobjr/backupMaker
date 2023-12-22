@@ -15,7 +15,22 @@ while True:
     resultado = encontrar_diretorio(diretorioOrigem)
 
     if resultado:
-        print(f"O diretório escolhido foi: {resultado}")
+        print(f"O diretório encontrado: {resultado}")
         break
     else:
-        print(f"{resultado} não foi encontrado neste computador. Tente novamente.")
+        print(f"{diretorioOrigem} não foi encontrado neste computador. Tente novamente.")
+
+caminho_do_desktop = os.path.expanduser('~/Desktop')
+pasta='backup'
+caminhoCompleto = os.path.join(caminho_do_desktop, pasta)
+os.makedirs(caminhoCompleto)
+
+Listagem = os.listdir(resultado)
+quant = len(Listagem)
+print(f'{quant} itens no diretório')
+
+for arquivo in Listagem:
+    caminhoInicial = os.path.join(resultado, arquivo)
+    caminhoFinal = os.path.join(caminhoCompleto, arquivo)
+    shutil.move(caminhoInicial, caminhoFinal)
+    print('backup realizado com sucesso.')

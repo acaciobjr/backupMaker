@@ -34,3 +34,5 @@ for arquivo in Listagem:
     caminhoFinal = os.path.join(caminhoCompleto, arquivo)
     shutil.move(caminhoInicial, caminhoFinal)
     print('backup realizado com sucesso.')
+
+...

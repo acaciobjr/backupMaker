@@ -11,7 +11,8 @@ def encontrar_diretorio(diretorioOrigem, pasta_inicial='C:\\'):
     return None
 
 while True:
-    diretorioOrigem = input("qual o nome do diretório que você deseja fazer backup?")
+    texto = input("qual o nome do diretório que você deseja fazer backup?")
+    diretorioOrigem = texto.replace(" ", "")
     print(f"Procurando por um diretório '{diretorioOrigem}' na sua máquina")
     tempoInicio = time.time()
     resultado = encontrar_diretorio(diretorioOrigem)
@@ -50,5 +51,3 @@ if quant2 == quant:
     print(f'{quant} itens em {resultado} e {quant2} em {nome_pasta}.')
     time.sleep(2)
     print('backup realizado com sucesso.')
-
-...

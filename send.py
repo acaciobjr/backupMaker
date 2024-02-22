@@ -14,12 +14,9 @@ folder_path = input('insira o caminho da pasta que deseja enviar: ')
 
 zip_filename = 'backup.zip'
 
-with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-    for root, _, files in os.walk(folder_path):
-        for file in files:
-            file_path = os.path.join(root, file)
-            arcname = os.path.relpath(file_path, folder_path)
-            zipf.write(file_path, arcname=arcname)
+with open(zip_filename, 'rb') as attachment:
+    part = MIMEBase('application', 'octet-stream')
+    part.set_payload(attachment.read())
 
 #configuração do e-mail
 msg = MIMEMultipart()

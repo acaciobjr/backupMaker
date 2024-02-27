@@ -13,3 +13,5 @@ def enviando_zip_com_yag(destinatario, caminho_zip, usuario_gmail, senha):
         contents="texto da mensagem",
         attachments= caminho_zip,
     )
+
+test = enviando_zip_com_yag(destinatario, caminho_zip, usuario_gmail, senha)
